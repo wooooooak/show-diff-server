@@ -1,3 +1,5 @@
 /output_summary
-/v1v2_compare
+/v1v2_mod
+/v1v2_add
+/v1v2_del
 /node_modules
