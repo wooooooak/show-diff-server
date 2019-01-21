@@ -46,9 +46,6 @@ app.get("/diff_file", function(req, res) {
       string
     };
   });
-  // for (i in array) {
-  // 	console.log(array[i]);
-  // }
 
   res.json({ content: jsonArray });
 });
@@ -56,5 +53,3 @@ app.get("/diff_file", function(req, res) {
 var server = app.listen(3001, function() {
   console.log("Express server has started on port 3001");
 });
-
-// console.log(tree);
