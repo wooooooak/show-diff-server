@@ -6,21 +6,20 @@ const dirTree = require("directory-tree");
 
 const app = express();
 app.use(cors());
-const modList = dirTree("./v1v2_mod", { attributes: [] });
-const delList = dirTree("./v1v2_del", { attributes: [] });
-const addList = dirTree("./v1v2_add", { attributes: [] });
+
+const modList = dirTree("./v1v2_mod");
+const delList = dirTree("./v1v2_del");
+const addList = dirTree("./v1v2_add");
 
 app.get("/list/mod", function(req, res) {
-  console.log("mod!");
   res.json({ tree: modList });
 });
 
 app.get("/list/add", function(req, res) {
-  console.log("add!");
   res.json({ tree: addList });
 });
+
 app.get("/list/del", function(req, res) {
-  console.log("del!");
   res.json({ tree: delList });
 });
 
