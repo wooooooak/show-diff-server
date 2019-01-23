@@ -1,33 +1,33 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
-const summary = require("./output_summary/v1_v2_summary.json");
+const summary = require("../diff-java/Result/output_summary/v1_v2_summary.json");
 const dirTree = require("directory-tree");
 
 const app = express();
 app.use(cors());
 
-const modList = dirTree("./v1v2_mod");
-const delList = dirTree("./v1v2_del");
-const addList = dirTree("./v1v2_add");
+const modList = dirTree("../diff-java/Result/v1v2_mod");
+const delList = dirTree("../diff-java/Result/v1v2_del");
+const addList = dirTree("../diff-java/Result/v1v2_add");
 
-app.get("/list/mod", function(req, res) {
+app.get("/tree/mod", function(req, res) {
   res.json({ tree: modList });
 });
 
-app.get("/list/add", function(req, res) {
+app.get("/tree/add", function(req, res) {
   res.json({ tree: addList });
 });
 
-app.get("/list/del", function(req, res) {
+app.get("/tree/del", function(req, res) {
   res.json({ tree: delList });
 });
 
-app.get("/summary", function(req, res) {
+app.get("/file/summary", function(req, res) {
   res.json(summary);
 });
 
-app.get("/diff_file", function(req, res) {
+app.get("/file/diff", function(req, res) {
   // console.dir(req.query);
   const array = fs
     .readFileSync(req.query.path)
