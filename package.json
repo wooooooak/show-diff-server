@@ -1,21 +1,23 @@
 {
-	"name": "show-diff-server",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"scripts": {
-		"server": "nodemon app.js"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"cors": "^2.8.5",
-		"directory-tree": "^2.2.1",
-		"express": "^4.16.4",
-		"global": "^4.3.2",
-		"nodemon": "^1.18.9"
-	}
+  "name": "show-diff-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon --exec babel-node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "directory-tree": "^2.2.1",
+    "express": "^4.16.4",
+    "global": "^4.3.2",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1"
+  }
 }
