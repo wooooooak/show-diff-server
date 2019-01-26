@@ -1,3 +1,6 @@
 /output_summary
 /v1v2_compare
+../diff-java/Result/v1v2_mod
+../diff-java/Result/v1v2_add
+../diff-java/Result/v1v2_del
 /node_modules

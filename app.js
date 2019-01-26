@@ -1,22 +1,24 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-const summary = require('./output_summary/v1_v2_summary.json');
+const summary = require('../diff-java/Result/output_summary/v1_v2_summary.json');
 const dirTree = require('directory-tree');
 
 const app = express();
 app.use(cors());
-const tree = dirTree('./v1v2_compare', { attributes: [] });
+const tree = dirTree('../diff-java/Result/v1v2_add');
+const tree = dirTree('../diff-java/Result/v1v2_mod');
+const tree = dirTree('../diff-java/Result/v1v2_del');
 
 app.get('/tree', function(req, res) {
 	res.json({ tree: tree });
 });
 
-app.get('/summary', function(req, res) {
+app.get('/file/summary', function(req, res) {
 	res.json(summary);
 });
 
-app.get('/diff_file', function(req, res) {
+app.get('/file/diff', function(req, res) {
 	// console.dir(req.query);
 	const array = fs.readFileSync(req.query.path).toString().split('\n');
 	const jsonArray = array.map((str) => {
@@ -31,10 +33,6 @@ app.get('/diff_file', function(req, res) {
 			string
 		};
 	});
-	// for (i in array) {
-	// 	console.log(array[i]);
-	// }
-
 	res.json({ content: jsonArray });
 });
 
